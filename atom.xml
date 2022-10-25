@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Czhlin&#39;s Blog</title>
+  <icon>http://blog.czhlin.top/icon.png</icon>
+  <subtitle>我的前端开发日志</subtitle>
+  <link href="http://blog.czhlin.top/atom.xml" rel="self"/>
+  
+  <link href="http://blog.czhlin.top/"/>
+  <updated>2022-10-25T00:07:24.194Z</updated>
+  <id>http://blog.czhlin.top/</id>
+  
+  <author>
+    <name>czhlin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo的自动化部署(三)</title>
+    <link href="http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%89/"/>
+    <id>http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%89/</id>
+    <published>2022-10-17T13:06:08.000Z</published>
+    <updated>2022-10-25T00:07:24.194Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;在开始第三部分前配置前，你需要有如下准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;github&lt;/code&gt;和&lt;code&gt;gitee&lt;/code&gt;仓库&lt;/li&gt;
+&lt;li&gt;私有仓库&lt;code&gt;hexo-blog&lt;/code&gt;放在&lt;code&gt;github&lt;/code&gt;和&lt;code&gt;gitee&lt;/code&gt;上&lt;/li&gt;
+&lt;li&gt;本地的&lt;code&gt;hexo-blog&lt;/code&gt;源码仓库&lt;/li&gt;
+&lt;li&gt;一个已经备案的域名&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="hexo" scheme="http://blog.czhlin.top/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo的自动化部署(二)</title>
+    <link href="http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%BA%8C/"/>
+    <id>http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%BA%8C/</id>
+    <published>2022-10-17T11:00:24.000Z</published>
+    <updated>2022-10-25T00:07:24.194Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;在开始第二部分的部署前，你需要有如下准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;github&lt;/code&gt;和&lt;code&gt;gitee&lt;/code&gt;仓库&lt;/li&gt;
+&lt;li&gt;静态网页开放仓库&lt;code&gt;[username].github.io&lt;/code&gt;和&lt;code&gt;[username].gitee.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;本地的&lt;code&gt;hexo-blog&lt;/code&gt;源码仓库&lt;/li&gt;
+&lt;li&gt;一个已经备案的域名&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="hexo" scheme="http://blog.czhlin.top/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo的自动化部署(一)</title>
+    <link href="http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%80/"/>
+    <id>http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%80/</id>
+    <published>2022-10-17T07:10:13.000Z</published>
+    <updated>2022-10-25T00:07:24.194Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;在开始部署前，你需要有如下的准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本地搭建完成的博客&lt;/li&gt;
+&lt;li&gt;一台&lt;code&gt;window/mac&lt;/code&gt;电脑&lt;/li&gt;
+&lt;li&gt;一台云服务器&lt;/li&gt;
+&lt;li&gt;一个已经备案的域名&lt;/li&gt;
+&lt;li&gt;电脑安装一个&lt;code&gt;ssh&lt;/code&gt;连接工具&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="hexo" scheme="http://blog.czhlin.top/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
