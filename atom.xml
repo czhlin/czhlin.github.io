@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Czhlin&#39;s Blog</title>
+  <icon>http://blog.czhlin.top/icon.png</icon>
+  <subtitle>我的前端开发日志</subtitle>
+  <link href="http://blog.czhlin.top/atom.xml" rel="self"/>
+  
+  <link href="http://blog.czhlin.top/"/>
+  <updated>2024-06-04T08:24:49.863Z</updated>
+  <id>http://blog.czhlin.top/</id>
+  
+  <author>
+    <name>czhlin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vitest的使用(三)</title>
+    <link href="http://blog.czhlin.top/20240604/vitest%E7%9A%84%E4%BD%BF%E7%94%A8-%E4%B8%89/"/>
+    <id>http://blog.czhlin.top/20240604/vitest%E7%9A%84%E4%BD%BF%E7%94%A8-%E4%B8%89/</id>
+    <published>2024-06-04T16:11:27.000Z</published>
+    <updated>2024-06-04T08:24:49.863Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;断言常用方法&quot;&gt;&lt;a href=&quot;#断言常用方法&quot; class=&quot;headerlink&quot; title=&quot;断言常用方法&quot;&gt;&lt;/a&gt;断言常用方法&lt;/h2&gt;&lt;p&gt;断言最核心的方法就是&lt;code&gt;expect&lt;/code&gt;和后面的&lt;code&gt;toXXX&lt;/code&gt;，&lt;code&gt;vitest&lt;/code&gt;根据&lt;code&gt;js&lt;/code&gt;不同的数据结构类型，有不同的断言方法&lt;/p&gt;
+&lt;h3 id=&quot;万能toBe&quot;&gt;&lt;a href=&quot;#万能toBe&quot; class=&quot;headerlink&quot; title=&quot;万能toBe&quot;&gt;&lt;/a&gt;万能&lt;code&gt;toBe&lt;/code&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;用于判断基本类型是否相等，对象的引用是否相等&lt;/li&gt;
+&lt;li&gt;相当于调用&lt;code&gt;Object.is&lt;/code&gt;方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;it&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;test toBe &amp;#x27;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; stock = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;apples&amp;#x27;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;count&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;title function_&quot;&gt;expect&lt;/span&gt;(stock.&lt;span class=&quot;property&quot;&gt;type&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;toBe&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;apples&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;title function_&quot;&gt;expect&lt;/span&gt;(stock.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;toBe&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; refStock = stock&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;title function_&quot;&gt;expect&lt;/span&gt;(stock).&lt;span class=&quot;title function_&quot;&gt;toBe&lt;/span&gt;(refStock)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="vitest" scheme="http://blog.czhlin.top/tags/vitest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vitest的使用(二)</title>
+    <link href="http://blog.czhlin.top/20240604/vitest%E7%9A%84%E4%BD%BF%E7%94%A8-%E4%BA%8C/"/>
+    <id>http://blog.czhlin.top/20240604/vitest%E7%9A%84%E4%BD%BF%E7%94%A8-%E4%BA%8C/</id>
+    <published>2024-06-04T16:07:06.000Z</published>
+    <updated>2024-06-04T08:24:49.863Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;测试文件结构&quot;&gt;&lt;a href=&quot;#测试文件结构&quot; class=&quot;headerlink&quot; title=&quot;测试文件结构&quot;&gt;&lt;/a&gt;测试文件结构&lt;/h2&gt;&lt;p&gt;从单元测试的结构上来说分为两部分，test suite（describe）和test case(it)。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;测试模块→test suite→describe方法&lt;/li&gt;
+&lt;li&gt;测试用例→test case→it方法或test方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; describe, it &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;vitest&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;describe&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;util 模块&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;title function_&quot;&gt;it&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;request 方法&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; () =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/** ... **/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="vitest" scheme="http://blog.czhlin.top/tags/vitest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vitest的使用(一)</title>
+    <link href="http://blog.czhlin.top/20240604/vitest%E7%9A%84%E4%BD%BF%E7%94%A8-%E4%B8%80/"/>
+    <id>http://blog.czhlin.top/20240604/vitest%E7%9A%84%E4%BD%BF%E7%94%A8-%E4%B8%80/</id>
+    <published>2024-06-04T16:02:07.000Z</published>
+    <updated>2024-06-04T08:24:49.863Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是Vitest&quot;&gt;&lt;a href=&quot;#什么是Vitest&quot; class=&quot;headerlink&quot; title=&quot;什么是Vitest&quot;&gt;&lt;/a&gt;什么是Vitest&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;由Vite驱动的下一代测试框架，可以与vite共用一个文件&lt;/li&gt;
+&lt;li&gt;由于Jest的大规模使用有与Jest相兼容的API&lt;/li&gt;
+&lt;li&gt;Vite项目的首选测试框架和非Vite项目测试框架的可靠替代方案&lt;/li&gt;
+&lt;li&gt;使用Worker线程并发运行，具有良好的性能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总之，vitest是一个用vite驱动的下一代测试框架，具有实用的api和多线程运行的良好性能，逐渐成为Vite项目的首先测试框架，非vite项目测试框架的可靠替代方案&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://cn.vitest.dev/guide/features.html&quot;&gt;vitest官方文档&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="vitest" scheme="http://blog.czhlin.top/tags/vitest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo的自动化部署(三)</title>
+    <link href="http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%89/"/>
+    <id>http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%89/</id>
+    <published>2022-10-17T13:06:08.000Z</published>
+    <updated>2024-06-04T08:24:49.863Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;在开始第三部分前配置前，你需要有如下准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;github&lt;/code&gt;和&lt;code&gt;gitee&lt;/code&gt;仓库&lt;/li&gt;
+&lt;li&gt;私有仓库&lt;code&gt;hexo-blog&lt;/code&gt;放在&lt;code&gt;github&lt;/code&gt;和&lt;code&gt;gitee&lt;/code&gt;上&lt;/li&gt;
+&lt;li&gt;本地的&lt;code&gt;hexo-blog&lt;/code&gt;源码仓库&lt;/li&gt;
+&lt;li&gt;一个已经备案的域名&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="hexo" scheme="http://blog.czhlin.top/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo的自动化部署(二)</title>
+    <link href="http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%BA%8C/"/>
+    <id>http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%BA%8C/</id>
+    <published>2022-10-17T11:00:24.000Z</published>
+    <updated>2024-06-04T08:24:49.863Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;在开始第二部分的部署前，你需要有如下准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;github&lt;/code&gt;和&lt;code&gt;gitee&lt;/code&gt;仓库&lt;/li&gt;
+&lt;li&gt;静态网页开放仓库&lt;code&gt;[username].github.io&lt;/code&gt;和&lt;code&gt;[username].gitee.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;本地的&lt;code&gt;hexo-blog&lt;/code&gt;源码仓库&lt;/li&gt;
+&lt;li&gt;一个已经备案的域名&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="hexo" scheme="http://blog.czhlin.top/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo的自动化部署(一)</title>
+    <link href="http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%80/"/>
+    <id>http://blog.czhlin.top/20221017/hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2-%E4%B8%80/</id>
+    <published>2022-10-17T07:10:13.000Z</published>
+    <updated>2024-06-04T08:24:49.863Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;在开始部署前，你需要有如下的准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本地搭建完成的博客&lt;/li&gt;
+&lt;li&gt;一台&lt;code&gt;window/mac&lt;/code&gt;电脑 1&lt;/li&gt;
+&lt;li&gt;一台云服务器&lt;/li&gt;
+&lt;li&gt;一个已经备案的域名&lt;/li&gt;
+&lt;li&gt;电脑安装一个&lt;code&gt;ssh&lt;/code&gt;连接工具&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://blog.czhlin.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="hexo" scheme="http://blog.czhlin.top/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
